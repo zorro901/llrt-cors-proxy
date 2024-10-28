@@ -1,9 +1,5 @@
-beforeEach(() => {
-  global.fetch = jest.fn().mockResolvedValue({
-    json: () => Promise.resolve({ data: "mocked data" })
-  });
-});
+beforeEach(() => {})
 
 afterEach(() => {
-  jest.clearAllMocks();
-});
+	jest.clearAllMocks()
+})
