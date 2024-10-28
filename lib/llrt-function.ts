@@ -34,8 +34,8 @@ export class LlrtFunction extends NodejsFunction {
 				format: OutputFormat.ESM,
 				minify: true,
 				commandHooks: {
-					beforeBundling: (_i, _o) => [],
-					afterBundling: (i, o) => [
+					beforeBundling: (_i, _o): string[] => [],
+					afterBundling: (i, o): string[] => [
 						// Download llrt binary from GitHub release and cache it
 						`if [ ! -e ${i}/${cacheDir}/bootstrap ]; then
               mkdir -p ${i}/${cacheDir}
@@ -46,7 +46,7 @@ export class LlrtFunction extends NodejsFunction {
              fi`,
 						`cp ${i}/${cacheDir}/bootstrap ${o}/`,
 					],
-					beforeInstall: (_i, _o) => [],
+					beforeInstall: (_i, _o): string[] => [],
 				},
 				// Dependencies bundled in the runtime
 				// https://github.com/awslabs/llrt?tab=readme-ov-file#using-aws-sdk-v3-with-llrt
