@@ -1,29 +1,36 @@
 {
-  "name": "llrt-cors-proxy",
-  "version": "0.1.0",
-  "bin": {
-    "llrt-cors-proxy": "bin/llrt-cors-proxy.js"
-  },
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk",
-    "preinstall": "npx only-allow npm"
-  },
-  "devDependencies": {
-    "@types/aws-lambda": "8.10.145",
-    "@types/jest": "29.5.14",
-    "@types/node": "22.8.1",
-    "jest": "29.7.0",
-    "ts-jest": "29.2.5",
-    "aws-cdk": "2.164.1",
-    "ts-node": "10.9.2",
-    "typescript": "5.6.3"
-  },
-  "dependencies": {
-    "aws-cdk-lib": "2.164.1",
-    "constructs": "10.4.2",
-    "source-map-support": "0.5.21"
-  }
+	"name": "llrt-cors-proxy",
+	"version": "0.1.0",
+	"bin": {
+		"llrt-cors-proxy": "bin/llrt-cors-proxy.js"
+	},
+	"scripts": {
+		"build": "tsc",
+		"watch": "tsc -w",
+		"test": "jest",
+		"cdk": "cdk",
+		"preinstall": "npx only-allow npm",
+		"----CHECK": "",
+		"format:check": "biome format",
+		"format:fix": "biome format --write",
+		"lint": "biome lint",
+		"lint:fix": "biome check --write --unsafe --error-on-warnings --no-errors-on-unmatched --files-ignore-unknown=true"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/aws-lambda": "8.10.145",
+		"@types/jest": "29.5.14",
+		"@types/node": "22.8.1",
+		"aws-cdk": "2.164.1",
+		"jest": "29.7.0",
+		"lefthook": "1.8.1",
+		"ts-jest": "29.2.5",
+		"ts-node": "10.9.2",
+		"typescript": "5.6.3"
+	},
+	"dependencies": {
+		"aws-cdk-lib": "2.164.1",
+		"constructs": "10.4.2",
+		"source-map-support": "0.5.21"
+	}
 }
