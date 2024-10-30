@@ -1,5 +1,6 @@
 import type { APIGatewayProxyResult, Context, Handler } from 'aws-lambda'
 import type { APIGatewayProxyEventV2WithRequestContext } from 'aws-lambda/trigger/api-gateway-proxy'
+import * as v from 'valibot'
 
 export const handler: Handler<
 	APIGatewayProxyEventV2WithRequestContext<Context>,
@@ -7,7 +8,10 @@ export const handler: Handler<
 > = async (event) => {
 	try {
 		const response = await fetch(
-			`${event.rawPath.replace('/', '')}?${event.rawQueryString}`,
+			v.parse(
+				v.pipe(v.string(), v.url()),
+				`${event.rawPath.replace('/', '')}?${event.rawQueryString}`,
+			),
 		)
 		const json = await response.json()
 
